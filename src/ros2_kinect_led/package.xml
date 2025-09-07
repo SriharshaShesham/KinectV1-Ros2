@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>ros2_kinect_led</name>
+  <version>0.0.1</version>
+  <description>Control Kinect v1 LED via ROS 2</description>
+
+  <maintainer email="sriharsha@sheshams.in">Sriharsha</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>std_msgs</depend>
+  <exec_depend>libfreenect</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

@@ -1,0 +1,40 @@
+# ROS 2 colcon build artifacts
+build/
+install/
+log/
+
+# Ignore all .log files everywhere
+*.log
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+
+# Ignore CMake and other build system leftovers
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.so
+*.swp
+
+# Ignore editor-specific files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Ignore launch-generated files
+*.launch.pyc
+
+# Ignore RViz autosaves
+*.rviz2
+*.db
+
+# Ignore calibration backups (if any)
+cfg/*_backup.yaml
+
+# Keep source files, launch files, and calibration configs
+!src/
+!launch/
+!cfg/
+!include/

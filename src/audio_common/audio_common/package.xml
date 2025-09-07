@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<?xml-model
+  href="http://download.ros.org/schema/package_format3.xsd"
+  schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+   <name>audio_common</name>
+   <version>0.3.12</version>
+   <description>
+      Common code for working with audio in ROS
+   </description>
+   <maintainer email="namniart@gmail.com">Austin Hendrix</maintainer>
+   <maintainer email="shingogo.5511@gmail.com">Shingo Kitagawa</maintainer>
+   <author>Blaise Gassend</author>
+   <license>BSD</license>  
+   <url type="website">http://ros.org/wiki/audio_common</url>
+   <url type="repository">https://github.com/ros-drivers/audio_common</url>
+   <url type="bugtracker">https://github.com/ros-drivers/audio_common/issues</url>
+
+   <buildtool_depend>ament_cmake</buildtool_depend>
+
+   <exec_depend>audio_capture</exec_depend>
+   <exec_depend>audio_common_msgs</exec_depend>
+   <exec_depend>audio_play</exec_depend>
+   <exec_depend>sound_play</exec_depend>
+
+   <export>
+     <build_type>ament_cmake</build_type>
+   </export>
+</package>
