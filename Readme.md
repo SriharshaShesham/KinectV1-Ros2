@@ -1,4 +1,4 @@
-# Ros2 Workspace
+# Kinect.V1 integration with ROS2 in Sep-2025
 
 This is a ROS2-based project designed to integrate and operate the Kinect v1 sensor using the libfreenect library. It provides a platform for accessing Kinect's audio, RGB, depth, tilt, and LED features within the ROS2 Humble environment, making it suitable for robotics and sensor-driven applications.
 
