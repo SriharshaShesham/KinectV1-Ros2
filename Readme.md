@@ -1,11 +1,12 @@
 # Kinect.V1 integration with ROS2 in Sep-2025
 
+This is a ROS2-based project designed to integrate and operate the Kinect v1 sensor using the libfreenect library. It provides a platform for accessing Kinect's audio, RGB, depth, tilt, and LED features within the ROS2 Humble environment, making it suitable for robotics and sensor-driven applications.
+
 > **Note:**  
 > This branch is designed for users who wish to operate Kinect v1 features as separate ROS2 nodes—such as RGB, depth, tilt, and LED—allowing you to launch and manage each capability independently. This modular approach is ideal for development, debugging, or when you only need specific sensor functions.  
 >  
 > If you require all features to run together in a unified node (for example, for full sensor integration or streamlined deployment), please switch to the `ros2-humble-unified` branch, which provides a combined solution for simultaneous operation of all Kinect v1 functionalities.
 
-This is a ROS2-based project designed to integrate and operate the Kinect v1 sensor using the libfreenect library. It provides a platform for accessing Kinect's audio, RGB, depth, tilt, and LED features within the ROS2 Humble environment, making it suitable for robotics and sensor-driven applications.
 
 
 Here is my setup details:
