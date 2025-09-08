@@ -5,7 +5,7 @@ This is a ROS2-based project designed to integrate and operate the Kinect v1 sen
 
 > **Note:** This setup is tested on Ubuntu 22.04 with ROS2 Humble and Kinect v1 (Model 1517). The workspace includes automatic firmware upload for the Kinect, so manual steps like running `freenect-micview` are not required.
 
-For detailed libfreenect setup instructions, please refer to the [libfreenect README](./libfreenect.Readme.md).
+For detailed libfreenect setup instructions, please refer to the [libfreenect README](https://github.com/SriharshaShesham/KinectV1-Ros2/blob/ros2-humble/libfreenect.Readme.md).
 
 ## Workspace Structure
 
@@ -54,32 +54,28 @@ source install/setup.bash
 Start the unified node:
 
 ```bash
-ros2 launch ros2_kinect_unified kinect_unified.launch.py
+ros2 run ros2_kinect_unified ros2_kinect_unified_node
 ```
 
-Or for dashboard visualization:
 
-```bash
-ros2 launch ros2_kinect_unified kinect_dashboard.launch.py
-```
-
-## Feature Usage
+## Tests
 
 ### LED Control
 
-Send commands to `/kinect/led_cmd`:
+Send commands to `/kinect/led`:
 
 ```bash
-ros2 topic pub --once /kinect/led_cmd std_msgs/String "data: 'red'"
-ros2 topic pub --once /kinect/led_cmd std_msgs/String "data: 'blink_green'"
-ros2 topic pub --once /kinect/led_cmd std_msgs/String "data: 'green'"
-ros2 topic pub --once /kinect/led_cmd std_msgs/String "data: 'off'"
+ros2 topic pub --once /kinect/led std_msgs/Int32 "data: 2"   # red
+ros2 topic pub --once /kinect/led std_msgs/Int32 "data: 4"   # blink green
+ros2 topic pub --once /kinect/led std_msgs/Int32 "data: 1"   # green
+ros2 topic pub --once /kinect/led std_msgs/Int32 "data: 0"   # off
+
 ```
 
-Or run all LED tests:
+Or testing programatically:
 
 ```bash
-ros2 run ros2_tests rgb_viewer_unified
+ros2 ros2 run ros2_tests led_test_unified
 ```
 
 ### Tilt Control
@@ -87,17 +83,16 @@ ros2 run ros2_tests rgb_viewer_unified
 Send commands to `/kinect/tilt_cmd`:
 
 ```bash
-ros2 topic pub --once /kinect/tilt_cmd std_msgs/String "data: 'center'"
-ros2 topic pub --once /kinect/tilt_cmd std_msgs/String "data: 'down'"
-ros2 topic pub --once /kinect/tilt_cmd std_msgs/String "data: 'up'"
-ros2 topic pub --once /kinect/tilt_cmd std_msgs/String "data: 'set 15'"
-ros2 topic pub --once /kinect/tilt_cmd std_msgs/String "data: 'set -15'"
+ros2 topic pub --once /kinect/tilt_angle std_msgs/Float64 "data: 15.0"   # tilt up
+ros2 topic pub --once /kinect/tilt_angle std_msgs/Float64 "data: -10.0"  # tilt down
+ros2 topic pub --once /kinect/tilt_angle std_msgs/Float64 "data: 0.0"    # level
+
 ```
 
-Or run all tilt tests:
+Or testing programatically:
 
 ```bash
-ros2 run ros2_tests depth_viewer_unified
+ros2 run ros2_tests tilt_test_unified
 ```
 
 ### Depth Image
@@ -124,8 +119,8 @@ Capture and save audio:
 ros2 run ros2_tests audio_saver
 ```
 
----
+Play audio stream: 
 
-**Tip:** All features are accessible from the unified node. Use the test scripts in `ros2_tests` for quick validation and visualization.
-
-For troubleshooting or advanced usage, refer to the individual package documentation and source files in `src/ros2_kinect_unified` and `src/ros2_tests`.
+```bash
+aplay kinect_capture.wav
+```
