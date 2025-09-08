@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>ros2_kinect_unified</name>
+  <version>0.0.1</version>
+  <description>Unified Kinect v1 ROS 2 driver with RGB, depth, audio, tilt, and LED control in one node.</description>
+
+  <maintainer email="you@example.com">Sriharsha</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>sensor_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>audio_common_msgs</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

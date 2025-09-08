@@ -1,1 +1,0 @@
-SUBSYSTEM=="usb", ATTR{idVendor}=="045e", ATTR{idProduct}=="02bf", ACTION=="add", RUN+="/usr/local/bin/kinect-fwkick.sh"

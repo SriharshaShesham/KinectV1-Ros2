@@ -1,0 +1,34 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+  - Class: rviz_common/Views
+    Name: Views
+  - Class: rviz_common/Time
+    Name: Time
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Class: rviz_default_plugins/Image
+      Name: RGB Image
+      Enabled: true
+      Image Topic: /kinect/rgb/image_raw
+      Queue Size: 2
+    - Class: rviz_default_plugins/Image
+      Name: Depth Image
+      Enabled: true
+      Image Topic: /kinect/depth/image_raw
+      Queue Size: 2
+    - Class: rviz_default_plugins/TF
+      Name: TF
+      Enabled: true
+      Show Names: true
+      Show Axes: true
+      Show Arrows: true
+  Global Options:
+    Fixed Frame: kinect_rgb_optical_frame
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 2.0
+      Pitch: 0.5
+      Yaw: 0.5

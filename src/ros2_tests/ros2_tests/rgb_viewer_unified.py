@@ -1,12 +1,13 @@
+#!/usr/bin/env python3
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
 import cv2
 
-class RGBViewer(Node):
+class RGBViewerUnified(Node):
     def __init__(self):
-        super().__init__('rgb_viewer')
+        super().__init__('rgb_viewer_unified')
         self.bridge = CvBridge()
         self.subscription = self.create_subscription(
             Image,
@@ -14,22 +15,21 @@ class RGBViewer(Node):
             self.listener_callback,
             10
         )
-        self.get_logger().info("RGB Viewer node started. Waiting for images...")
+        self.get_logger().info("Unified RGB Viewer started. Waiting for images...")
 
     def listener_callback(self, msg):
         try:
-            # Convert ROS Image to OpenCV image
-            cv_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='rgb16')
-            # Convert RGB to BGR for OpenCV display
+            self.get_logger().debug(f"RGB msg: {msg.header}")
+            cv_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='rgb8')
             cv_image_bgr = cv2.cvtColor(cv_image, cv2.COLOR_RGB2BGR)
-            cv2.imshow("Kinect RGB Stream", cv_image_bgr)
+            cv2.imshow("Unified Kinect RGB Stream", cv_image_bgr)
             cv2.waitKey(1)
         except Exception as e:
-            self.get_logger().error(f"Failed to convert image: {e}")
+            self.get_logger().error(f"Failed to convert RGB image: {e}")
 
 def main(args=None):
     rclpy.init(args=args)
-    node = RGBViewer()
+    node = RGBViewerUnified()
     try:
         rclpy.spin(node)
     except KeyboardInterrupt:
