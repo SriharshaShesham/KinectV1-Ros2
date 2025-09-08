@@ -1,4 +1,4 @@
-# Ros2 Workspace
+# Kinect.V1 integration with ROS2 in Sep-2025
 
 > **Note:**  
 > This branch is designed for users who wish to operate Kinect v1 features as separate ROS2 nodes—such as RGB, depth, tilt, and LED—allowing you to launch and manage each capability independently. This modular approach is ideal for development, debugging, or when you only need specific sensor functions.  
